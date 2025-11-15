@@ -17,9 +17,9 @@ on:
         type: string
       # Input opsional untuk mengatur ukuran chunk
       chunk_size:
-        description: 'Jumlah Domain per deployment API Call (Default: 50)'
+        description: 'Jumlah Domain per deployment API Call (Default: 10)'
         required: false
-        default: '50'
+        default: '10' # Nilai default diubah dari 50 ke 10
         type: string
 
 jobs:
@@ -115,9 +115,9 @@ jobs:
             npx wrangler deploy --config wrangler.toml
             echo "Deployment chunk $chunk_file selesai."
             
-            # --- SOLUSI BARU: Tambahkan delay 10 detik antar chunk untuk menghindari timeout API ---
-            echo "Menunggu 10 detik sebelum memproses chunk berikutnya..."
-            sleep 10
+            # --- SOLUSI BARU: Tambahkan delay 15 detik antar chunk untuk mitigasi timeout API yang agresif ---
+            echo "Menunggu 15 detik sebelum memproses chunk berikutnya..."
+            sleep 15 # Ditingkatkan dari 10s ke 15s
             
           done
           

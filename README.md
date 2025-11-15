@@ -21,8 +21,7 @@ Repository ini menyediakan dua workflow GitHub Actions yang dirancang untuk memp
 
 ---
 
-## 🎭 Dua Workflow, Dua Kekuatan
-
+## 🎭 TUTORIAL DAN PENJELSAN
 ### 1️⃣ Deploy Injektor (`main.yml`)
 
 **Single Worker, Multiple Domains**

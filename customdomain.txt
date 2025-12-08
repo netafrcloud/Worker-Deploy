@@ -76,7 +76,7 @@ suporte.garena.com
 suportepagamentos.garena.com
 mmg-fna.whatsapp.net
 onelink.seabank.co.id
-apm.seabank.coid
+apm.seabank.co.id
 blue.blibli.com
 news.microsoft.com
 trouter2-azsc-uswe-3-a.trouter.teams.microsoft.com

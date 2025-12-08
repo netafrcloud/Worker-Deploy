@@ -118,9 +118,9 @@ jobs:
             npx wrangler deploy --config wrangler.toml
             echo "Deployment worker $DYNAMIC_WORKER_NAME selesai."
             
-            # --- Delay 20 detik antar deployment Worker untuk mitigasi timeout API ---
-            echo "Menunggu 20 detik sebelum memproses worker berikutnya..."
-            sleep 20
+            # --- Delay 10 detik antar deployment Worker untuk mitigasi timeout API ---
+            echo "Menunggu 10 detik sebelum memproses worker berikutnya..."
+            sleep 10
             
           done
           

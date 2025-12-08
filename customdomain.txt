@@ -82,3 +82,6 @@ news.microsoft.com
 trouter2-azsc-uswe-3-a.trouter.teams.microsoft.com
 teams.microsoft.com
 cdn.noice.id
+az1file-cf.zoom.us
+support.udemy.com
+azureinfo.microsoft.com

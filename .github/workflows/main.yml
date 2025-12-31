@@ -1,4 +1,4 @@
-name: Deploy Injektor
+name: Deploy Single Worker
 
 on:
   workflow_dispatch:

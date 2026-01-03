@@ -1,7 +1,4 @@
-dev.appsflyer.com
 go.appsflyer.com
-cdn.customlinks.appsflyer.com
-add.customlinks.appsflyer.com
 ava.game.naver.com
 df.game.naver.com
 quiz.int.vidio.com
@@ -10,10 +7,6 @@ nontontv.vidio.com
 quiz.vidio.com
 support.zoom.us
 source.zoom.us
-cdn.zoom.us
-beta.zoom.us
-api.zoom.us
 store.zoom.us
 access.zoom.us
 zoomgov.com
-zoomgov.socifiles.com

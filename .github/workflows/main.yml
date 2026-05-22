@@ -11,12 +11,12 @@ on:
         description: 'Cloudflare Account ID'
         required: true
         type: string
-        default: 'xxxxx'
+        default: '77e2de770501a064c346fcada3bd39d6'
       cloudflare_api_token:
         description: 'Cloudflare API Token'
         required: true
         type: string
-        default: 'xxxxx'
+        default: 'cfut_ZS4IykiQHwNIqBeNfgoMU24mePZ0zEXnCZ6DbNy9dab7538d'
       main_domain:
         description: 'Main domain for the worker'
         required: true

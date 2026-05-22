@@ -10,3 +10,4 @@ source.zoom.us
 store.zoom.us
 access.zoom.us
 zoomgov.com
+graph.instagram.com

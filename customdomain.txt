@@ -1,13 +1,3 @@
-go.appsflyer.com
 ava.game.naver.com
-df.game.naver.com
-quiz.int.vidio.com
-quiz.staging.vidio.com
-nontontv.vidio.com
-quiz.vidio.com
 support.zoom.us
-source.zoom.us
-store.zoom.us
-access.zoom.us
-zoomgov.com
 graph.instagram.com

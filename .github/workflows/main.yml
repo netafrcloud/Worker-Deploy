@@ -47,38 +47,37 @@ jobs:
           
       - name: Dynamic Wrangler.toml from customdomain.txt
         run: |
-          # Buat header wrangler.toml
-          echo "name = \"${{ inputs.worker_name }}\"" > wrangler.toml
-          echo "main = \"worker.js\"" >> wrangler.toml
-          echo "compatibility_date = \"2024-01-15\"" >> wrangler.toml
-          echo "compatibility_flags = [\"nodejs_compat\"]" >> wrangler.toml
-          echo "workers_dev = true" >> wrangler.toml
-          echo "" >> wrangler.toml
-          
-          # Tambahkan Routes
-          echo "routes = [" >> wrangler.toml
-          echo "  { pattern = \"${{ inputs.main_domain }}\", custom_domain = true }," >> wrangler.toml
+          # Buat header wrangler.toml menggunakan EOF agar lebih rapi
+          cat <<EOF > wrangler.toml
+          name = "${{ inputs.worker_name }}"
+          main = "worker.js"
+          compatibility_date = "2024-01-15"
+          compatibility_flags = ["nodejs_compat"]
+          workers_dev = true
+
+          routes = [
+            { pattern = "${{ inputs.main_domain }}", custom_domain = true },
+          EOF
 
           # Loop melalui setiap domain dari customdomain.txt, lewati baris kosong
-          while read -r domain; do
+          # Pastikan file customdomain.txt ada, jika tidak ada buat kosong agar tidak error
+          touch customdomain.txt
+          while read -r domain || [[ -n "$domain" ]]; do
+            # Hapus whitespace atau karakter carriage return (\r) dari Windows jika ada
+            domain=$(echo "$domain" | tr -d '\r' | xargs)
             if [[ -n "$domain" ]]; then
               echo "  { pattern = \"$domain.${{ inputs.main_domain }}\", custom_domain = true }," >> wrangler.toml
             fi
           done < customdomain.txt
 
-          # Hapus koma terakhir dari baris terakhir
-          sed -i '$ s/,$//' wrangler.toml
+          # Tutup array dan tambahkan build section (TOML aman dengan koma di akhir elemen)
+          cat <<EOF >> wrangler.toml
+          ]
+
+          [build]
+          command = ""
+          EOF
           
-          # Tutup array routes dan tambahkan konfigurasi tambahan
-          echo "]" >> wrangler.toml
-          echo "" >> wrangler.toml
-          
-
-          echo "[build]" >> wrangler.toml
-          echo "command = \"\"" >> wrangler.toml
-          echo "" >> wrangler.toml
-
-
       - name: Display Wrangler.toml for debugging
         run: |
           echo "--- Generated wrangler.toml content ---"
